@@ -4,7 +4,16 @@
 
 A small Python project that analyzes dialogue transcripts using Edward de Bono's **Six Thinking Hats** framework.
 
-The script takes a raw transcript, cleans it, removes filler, labels each sentence with a dominant and secondary thinking hat, and creates a simple pie chart showing the distribution of thinking styles.
+The **Six Thinking Hats** framework is a structured thinking method where different “hats” represent different modes of thinking:
+
+- **White hat**: facts, data, evidence, and neutral information
+- **Red hat**: emotions, intuition, feelings, and gut reactions
+- **Black hat**: risks, problems, criticism, and caution
+- **Yellow hat**: benefits, opportunities, optimism, and value
+- **Green hat**: creativity, alternatives, ideas, and possibilities
+- **Blue hat**: structure, process, summaries, and decision-making control
+
+This project takes a raw dialogue transcript and uses an LLM to clean the text, remove filler, and classify each sentence according to the thinking style it represents. Each sentence receives one dominant hat and, when relevant, one secondary hat. The script then counts the distribution of thinking styles and generates a pie chart showing how the conversation is balanced across the six hats.
 
 ## Project files
 
@@ -20,10 +29,11 @@ thinking-hats-transcript-analyzer/
 ## Features
 
 - Cleans raw transcript text into readable dialogue
-- Removes filler while preserving meaning
+- Removes filler while preserving the original meaning
 - Labels each sentence using the Six Thinking Hats framework
-- Counts dominant and secondary hat labels
-- Saves a text report and pie chart
+- Assigns both dominant and secondary thinking-hat labels
+- Counts the distribution of reasoning styles across the transcript
+- Generates a pie chart that visualizes the conversation’s thinking pattern
 - Uses `OPENAI_API_KEY` from the environment instead of hardcoding secrets
 
 ## Setup
@@ -96,6 +106,8 @@ This adds:
 red: 1.0
 black: 0.3
 ```
+
+This weighting makes the chart reflect the main thinking style of each sentence while still capturing weaker secondary signals.
 
 ## Security note
 
